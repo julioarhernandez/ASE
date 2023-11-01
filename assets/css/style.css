@@ -2244,7 +2244,7 @@ div#mCSB_1_container{
   position: relative;
   display: block;
   float: left;
-  width: 33.333%;
+  width: 50%;
   font-size: 20px;
   line-height: 30px;
   color: #141417;
@@ -2468,7 +2468,7 @@ div#mCSB_1_container{
   width: 1px;
   height: 100%;
   top: 0px;
-  right: -50px;
+  right: 0;
 }
 
 .content_block_three .content-box .list-style-one:last-child:before{
