@@ -1143,6 +1143,9 @@ img {
 .main-menu .navigation li.dropdown ul li.dropdown .dropdown-btn{
   display: none;
 }
+/*.menu-area {*/
+/*  width: 100%;*/
+/*}*/
 
 .menu-area .mobile-nav-toggler {
   position: relative;
