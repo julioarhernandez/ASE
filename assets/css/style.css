@@ -3120,6 +3120,7 @@ div#mCSB_1_container{
   width: auto;
   margin: 0 auto;
   transition: all 500ms ease;
+  filter: grayscale(1);
 }
 
 .clients-section .clients-logo img:hover{
