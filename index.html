@@ -36,6 +36,22 @@
 
     gtag('config', 'AW-11397247257');
 </script>
+<script>
+
+    function gtag_report_conversion(url) {
+        var callback = function () {
+            if (typeof(url) != 'undefined') {
+                window.location = url;
+            }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-11397247257/mVvYCKXogPMYEJni0Loq',
+            'event_callback': callback
+        });
+        return false;
+    }
+</script>
+
 
 </head>
 
@@ -105,7 +121,7 @@
                             <li class="d-none d-lg-inline-block "><i class="icon-1"></i>Mon-Sat  08:00AM-05:00PM</li>
                             <li class="d-none d-lg-inline-block "><i class="icon-2"></i>Miami-Dade / Broward</li>
                             <li class="d-none d-lg-inline-block "><i class="icon-3"></i><a href="mailto:americanstandardelectrical@gmail.com">americanstandardelectrical@gmail.com</a></li>
-                            <li class=""><i class="icon-4"></i>Call: <a href="tel:7868474696">(786)-847-4696</a></li>
+                            <li class=""><i class="icon-4"></i>Call: <a href="tel:7868474696" data-id="phoneConversion">(786)-847-4696</a></li>
                         </ul>
                     </div>
 
@@ -141,7 +157,7 @@
                     </div>
                     <div class="nav-right">
                         <div class="support-box">
-                            <h6><i class="icon-4"></i>Call: <a href="tel:7868474696">(786)-847-4696</a></h6>
+                            <h6><i class="icon-4"></i>Call: <a href="tel:7868474696" data-id="phoneConversion">(786)-847-4696</a></h6>
                         </div>
                         <div class="btn-box">
                             <a href="index.html" class="theme-btn btn-one">Appointment</a>
@@ -163,7 +179,7 @@
                     </div>
                     <div class="nav-right">
                         <div class="support-box">
-                            <h6><i class="icon-4"></i>Call: <a href="tel:7868474696">(786)-847-4696</a></h6>
+                            <h6><i class="icon-4"></i>Call: <a href="tel:7868474696" data-id="phoneConversion">(786)-847-4696</a></h6>
                         </div>
                         <div class="btn-box">
                             <a href="index.html" class="theme-btn btn-one">Appointment</a>
@@ -186,7 +202,7 @@
                     <h4>Contact Info</h4>
                     <ul>
                         <li>Serving Miami-Dade / Broward</li>
-                        <li><a href="tel:23055873407">(786)-847-4696</a></li>
+                        <li><a href="tel:7868474696" data-id="phoneConversion">(786)-847-4696</a></li>
                         <li><a href="mailto:americanstandardelectrical@gmail.com">americanstandardelectrical@gmail.com</a></li>
                     </ul>
                 </div>
@@ -257,16 +273,16 @@
                         <h6>Request Service Today</h6>
                     </div>
                     <div class="search-area">
-                        <form action="index.html" method="post">
+                        <form action="https://formspree.io/f/xeqbrnga" method="POST" id="conversion-form">
                             <div class="row clearfix">
                                 <div class="col-lg-3 col-md-6 col-sm-12 form-group">
-                                    <input type="text" name="name" placeholder="Your name" required>
+                                    <input type="text" name="name" placeholder="Your name" required id="dfName">
                                 </div>
                                 <div class="col-lg-3 col-md-6 col-sm-12 form-group">
-                                    <input type="email" name="email" placeholder="Your email" required>
+                                    <input type="email" name="email" placeholder="Your email" required id="dfEmail">
                                 </div>
                                 <div class="col-lg-3 col-md-6 col-sm-12 form-group">
-                                    <input type="text" name="phone" placeholder="Phone" required>
+                                    <input type="text" name="phone" placeholder="Phone" required id="dfPhone">
                                 </div>
                                 <div class="col-lg-3 col-md-6 col-sm-12 form-group">
                                     <div class="icon"><i class="icon-8"></i></div>
@@ -274,7 +290,7 @@
                                 </div>
                             </div>
                             <div class="btn-box">
-                                <button type="submit" class="theme-btn btn-one">Get Services</button>
+                                <button type="submit" class="theme-btn btn-one" id="form-submit">Get Services</button>
                             </div>
                         </form>
                     </div>
@@ -772,7 +788,7 @@
                                 <div class="support-box p_relative d_block">
                                     <div class="icon-box p_absolute l_0 t_0 w_70 h_70 lh_70 b_radius_50 fs_40"><i class="icon-37"></i></div>
                                     <h5>For Emergency</h5>
-                                    <h3><a href="tel:7868474696">(786)-847-4696</a></h3>
+                                    <h3><a href="tel:7868474696" data-id="phoneConversion">(786)-847-4696</a></h3>
                                 </div>
                             </div>
                         </div>
@@ -823,7 +839,7 @@
                                 <div class="widget-content">
                                     <ul class="info-list clearfix">
                                         <li>Serving Miami-Dade / Broward</li>
-                                        <li><a href="tel:23055873407">(786)-847-4696</a></li>
+                                        <li><a href="tel:7868474696" data-id="phoneConversion">(786)-847-4696</a></li>
                                         <li><a href="mailto:americanstandardelectrical@gmail.com">americanstandardelectrical@gmail.com</a></li>
                                     </ul>
                                 </div>
@@ -878,6 +894,9 @@
 
     <!-- main-js -->
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/conversion.js"></script>
+
+
 
 </body><!-- End of .page_wrapper -->
 </html>
