@@ -33,7 +33,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // If there are no errors, you can submit the form and send the conversion to gtag
-        gtag_report_conversion();
+        if (checkCampaignParam()){
+            gtag_report_conversion();
+        }
+
         form.submit();
     });
 
@@ -41,7 +44,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const phoneConversionLinks = document.querySelectorAll('[data-id="phoneConversion"]');
     phoneConversionLinks.forEach(link => {
         link.addEventListener("click", () => {
-            gtag_report_conversion();
+            if (checkCampaignParam()){
+                gtag_report_conversion();
+            }
         });
     });
 
@@ -61,4 +66,11 @@ document.addEventListener("DOMContentLoaded", function () {
         // Remove common symbols and non-numeric characters
         return phone.replace(/[^0-9]/g, "");
     }
+
+    function checkCampaignParam() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const campaignParam = urlParams.get("campaign");
+        return (campaignParam === "1");
+    }
+
 });
