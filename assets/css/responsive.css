@@ -52,7 +52,12 @@
   .menu-area .mobile-nav-toggler {
     display: block;
     padding: 10px;
-    margin-top: 37px;
+    margin-top: 40px;
+  }
+  @media only screen and (min-width: 769px){
+  .menu-area .mobile-nav-toggler {
+    margin-top: 52px;
+  }
   }
 
   .megamenu ul li:first-child{
