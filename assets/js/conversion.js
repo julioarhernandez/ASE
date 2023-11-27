@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (!isValidPhoneNumber(phoneInput)) {
-            alert("Please enter your phone number.");
+            alert("Please enter a valid phone number.");
             return; // Prevent form submission if there's an error
         }
 
@@ -32,14 +32,48 @@ document.addEventListener("DOMContentLoaded", function () {
             return; // Prevent form submission if there's an error
         }
 
-        // If there are no errors, you can submit the form and send the conversion to gtag
-        if (checkCampaignParam()){
-            gtag_report_conversion();
-        }
-
-        form.submit();
+        sendDataToApi(form);
     });
 
+    function sendDataToApi(form) {
+        // Serialize form data
+        var formData = new FormData(form);
+
+        // Make an AJAX request using fetch
+        fetch("/api", {
+            method: "POST",
+            body: formData,
+        })
+            .then(response => response.json()) // Assuming the server returns JSON
+            .then(data => {
+                // Handle success
+                alert('Success');
+
+                if (checkCampaignParam()){
+                    gtag_report_conversion();
+                }
+                // Disable all fields and submit buttons
+                disableFormFields(form);
+            })
+            .catch(error => {
+                // Handle error
+                alert("An error occurred. Try again.");
+            });
+    }
+
+     function disableFormFields(form) {
+        // Disable all form fields
+        var formElements = form.elements;
+        for (var i = 0; i < formElements.length; i++) {
+            formElements[i].disabled = true;
+        }
+
+        // Disable the submit button
+        var submitButton = document.getElementById("form-submit");
+        if (submitButton) {
+            submitButton.disabled = true;
+        }
+    }
     // Find all elements with data-id="phoneConversion" and add a click event listener
     const phoneConversionLinks = document.querySelectorAll('[data-id="phoneConversion"]');
     phoneConversionLinks.forEach(link => {
