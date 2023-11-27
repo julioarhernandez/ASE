@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.text()) // Assuming the server returns JSON
             .then(data => {
                 // Handle success
-                alert('Success');
+                alert('Thank you for your submission. We have received your information and will contact you shortly to discuss your request.');
 
                 if (checkCampaignParam()){
                     gtag_report_conversion();
