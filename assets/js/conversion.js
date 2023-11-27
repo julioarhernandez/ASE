@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
             method: "POST",
             body: formData,
         })
-            .then(response => response.json()) // Assuming the server returns JSON
+            .then(response => response.text()) // Assuming the server returns JSON
             .then(data => {
                 // Handle success
                 alert('Success');
