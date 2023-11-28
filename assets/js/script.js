@@ -211,7 +211,8 @@
     		animateIn: 'fadeIn',
     		active: true,
 			smartSpeed: 1000,
-			autoplay: 6000,
+			autoplay: true,
+			autoplayTimeout: 18000,
             navText: [ '<span class="fal fa-angle-left"></span>', '<span class="fal fa-angle-right"></span>' ],
             responsive:{
                 0:{
