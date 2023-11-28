@@ -31,9 +31,10 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Please enter a valid email address.");
             return; // Prevent form submission if there's an error
         }
- // Check if the email has already been submitted
+
+        // Check if the email has already been submitted
         if (isEmailAlreadySubmitted(emailInput)) {
-            alert("This email has already been submitted.");
+            alert("We've received your information. We'll be in touch with you shortly.");
             return; // Prevent form submission if the email has already been submitted
         }
 
