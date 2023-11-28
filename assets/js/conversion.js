@@ -31,11 +31,29 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Please enter a valid email address.");
             return; // Prevent form submission if there's an error
         }
+ // Check if the email has already been submitted
+        if (isEmailAlreadySubmitted(emailInput)) {
+            alert("This email has already been submitted.");
+            return; // Prevent form submission if the email has already been submitted
+        }
 
-        sendDataToApi(form);
+        sendDataToApi(form, emailInput);
     });
 
-    function sendDataToApi(form) {
+    function isEmailAlreadySubmitted(email) {
+        // Check if the email is already stored in localStorage
+        var submittedEmails = JSON.parse(localStorage.getItem("submittedEmails")) || [];
+        return submittedEmails.includes(email);
+    }
+
+    function markEmailAsSubmitted(email) {
+        // Store the submitted email in localStorage
+        var submittedEmails = JSON.parse(localStorage.getItem("submittedEmails")) || [];
+        submittedEmails.push(email);
+        localStorage.setItem("submittedEmails", JSON.stringify(submittedEmails));
+    }
+
+    function sendDataToApi(form, email) {
         // Serialize form data
         var formData = new FormData(form);
 
@@ -44,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
             method: "POST",
             body: formData,
         })
-            .then(response => response.text()) // Assuming the server returns JSON
+            .then(response => response.text())
             .then(data => {
                 // Handle success
                 alert('Thank you for your submission. We have received your information and will contact you shortly to discuss your request.');
@@ -52,6 +70,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (checkCampaignParam()){
                     gtag_report_conversion();
                 }
+
+                // Mark the email as submitted to avoid duplicate submissions
+                markEmailAsSubmitted(email);
+
                 // Disable all fields and submit buttons
                 disableFormFields(form);
             })
@@ -104,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function checkCampaignParam() {
         const urlParams = new URLSearchParams(window.location.search);
         const campaignParam = urlParams.get("campaign");
-        return (campaignParam === "1");
+        return campaignParam === "1";
     }
+ });
 
-});
