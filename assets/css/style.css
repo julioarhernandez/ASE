@@ -1542,11 +1542,11 @@ div#mCSB_1_container{
   -webkit-transform:scale(1);
   -ms-transform:scale(1);
   transform:scale(1);
-  -webkit-transition: all 8000ms linear;
-  -moz-transition: all 8000ms linear;
-  -ms-transition: all 8000ms linear;
-  -o-transition: all 8000ms linear;
-  transition: all 8000ms linear;
+  -webkit-transition: all 17000ms linear;
+  -moz-transition: all 17000ms linear;
+  -ms-transition: all 17000ms linear;
+  -o-transition: all 17000ms linear;
+  transition: all 17000ms linear;
 }
 
 .banner-carousel .active .slide-item .image-layer{
