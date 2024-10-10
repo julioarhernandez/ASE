@@ -1555,7 +1555,7 @@ div#mCSB_1_container{
   transform:scale(1.25);
 }
 
-.banner-carousel .content-box h2{
+.banner-carousel .content-box h2, .banner-carousel .content-box h1{
   color: #fff;
   opacity: 0;
   -webkit-transform: translateY(50px);
