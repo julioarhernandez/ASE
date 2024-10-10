@@ -54,7 +54,7 @@
   color: var(--main-color);
 }
 
-.banner-carousel .content-box h2 span{
+.banner-carousel .content-box h2 span, .banner-carousel .content-box h1 span{
 	color: var(--main-color);
 }
 
